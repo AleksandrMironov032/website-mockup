@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import Slide
 
-# Create your views here.
+
+def index(request):
+    slides = Slide.objects.all()
+    return render(request, 'slider/index.html', {'slides': slides})
